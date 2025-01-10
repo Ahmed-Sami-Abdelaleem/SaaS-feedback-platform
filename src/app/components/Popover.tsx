@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import FeedbackForm from "./FeedBackForm";
-
+import { MessageCircle } from "lucide-react";
 export default function PopoverButton() {
   const [isPopoverVisible, setIsPopoverVisible] = useState(false);
 
@@ -15,8 +15,9 @@ export default function PopoverButton() {
       {/* Button */}
       <button
         onClick={togglePopover}
-        className="fixed bottom-6 right-6 z-50 bg-black text-white px-4 py-2 rounded-lg hover:bg-slate-900 hover:scale-105 focus:outline-none"
+        className="flex  fixed bottom-6 right-6 z-50 bg-black text-white px-4 py-2 rounded-2xl hover:bg-slate-900 hover:scale-105 focus:outline-none"
       >
+        <MessageCircle/>
         Feedback
       </button>
 

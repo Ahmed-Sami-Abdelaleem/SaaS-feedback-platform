@@ -7,7 +7,7 @@ export default function FeedbackForm({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState(0);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
 interface FeedbackData {
     name: string;
@@ -21,10 +21,20 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const feedbackData: FeedbackData = { name, email, description, rating };
     console.log(feedbackData);
     alert("Feedback submitted!");
-    onClose();
+    setIsSubmitted(true);
 };
 
   return (
+ isSubmitted? ( <div className="text-center p-6">
+  <h3 className="text-2xl font-bold text-green-600 mb-4">Congratulations!</h3>
+  <p className="text-gray-700">Thank you for submitting your feedback.</p>
+  <button
+    onClick={onClose}
+    className="mt-4 px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+  >
+    Close
+  </button>
+</div>):
     <>
       <h3 className="text-xl font-bold mb-4">Send us your feedback</h3>
       <form onSubmit={handleSubmit} className=" space-y-4 ">
